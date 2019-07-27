@@ -20,10 +20,6 @@ data:
       [entryPoints.https]
       address = ":443"
       compress = true
-        [entryPoints.https.tls]
-          [[entryPoints.https.tls.certificates]]
-          CertFile = "/ssl/tls.crt"
-          KeyFile = "/ssl/tls.key"
     [kubernetes]
       [kubernetes.ingressEndpoint]
       publishedService = "kube-system/traefik"
@@ -33,6 +29,7 @@ data:
       email = "henning@jacobs1.de"
       storage = "acme.json"
       entryPoint = "https"
+      onHostRule = true
     [acme.tlsChallenge]
 
 
