@@ -20,6 +20,7 @@ data:
       [entryPoints.https]
       address = ":443"
       compress = true
+         [entryPoints.https.tls]
     [kubernetes]
       [kubernetes.ingressEndpoint]
       publishedService = "kube-system/traefik"
