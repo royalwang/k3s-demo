@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: kube-web-view
+spec:
+  rules:
+  - host: "kube-web-view.demo.j-serv.de"
+    http:
+      paths:
+      - backend:
+          serviceName: kube-web-view
+          servicePort: 80
