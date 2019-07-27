@@ -16,3 +16,5 @@ kubectl apply -f kube-web-view/deploy/
 
 git clone https://github.com/hjacobs/kube-resource-report.git
 kubectl apply -f kube-resource-report/deploy/
+
+kubectl apply -f manifests/
