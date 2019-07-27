@@ -4,7 +4,7 @@
 curl -sfL https://get.k3s.io | sh -
 
 # Install Metrics Server
-git clone git@github.com:kubernetes-incubator/metrics-server.git
+git clone https://github.com/kubernetes-incubator/metrics-server.git
 kubectl apply -f metrics-server/deploy/1.8+/
 kubectl top node
 
