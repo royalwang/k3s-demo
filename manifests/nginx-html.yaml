@@ -18,11 +18,11 @@ data:
         <div class="container">
         <div class="content">
         <h1>Kubernetes Demo</h1>
-        <p>This host runs a single-node Kubernetes (K3s) cluster with a few demo applications:</p>
+        <p>This host runs a single-node Kubernetes (<a href="https://k3s.io/">K3s</a>) cluster with a few demo applications:</p>
         <ul>
-            <li><a href="https://kube-ops-view.demo.j-serv.de">Kubernetes Operational View (kube-ops-view)</a></li>
-            <li><a href="https://kube-web-view.demo.j-serv.de">Kubernetes Web View (kube-web-view)</a></li>
-            <li><a href="https://kube-resource-report.demo.j-serv.de">Kubernetes Resource Report (kube-resource-report)</a></li>
+            <li><a href="https://kube-ops-view.demo.j-serv.de">Kubernetes Operational View (kube-ops-view)</a> - <a href="https://github.com/hjacobs/kube-ops-view">git repo</a></li>
+            <li><a href="https://kube-web-view.demo.j-serv.de">Kubernetes Web View (kube-web-view)</a> - <a href="https://codeberg.org/hjacobs/kube-web-view">git repo</a></li>
+            <li><a href="https://kube-resource-report.demo.j-serv.de">Kubernetes Resource Report (kube-resource-report)</a> - <a href="https://github.com/hjacobs/kube-resource-report">git repo</a></li>
         </ul>
         <p>Source code of this page can be found on <a href="https://codeberg.org/hjacobs/k3s-demo">https://codeberg.org/hjacobs/k3s-demo</a>.</p>
         </div>
