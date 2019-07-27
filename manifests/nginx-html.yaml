@@ -4,4 +4,29 @@ metadata:
   name: nginx-html
 data:
   index.html: |
-    <html>TEST</html>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K3s Demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    </head>
+    <body>
+        <section class="section">
+        <div class="container">
+        <div class="content">
+        <h1>Kubernetes Demo</h1>
+        <p>This host runs a single-node Kubernetes (K3s) cluster with a few demo applications:</p>
+        <ul>
+            <li><a href="https://kube-ops-view.demo.j-serv.de">Kubernetes Operational View (kube-ops-view)</a></li>
+            <li><a href="https://kube-web-view.demo.j-serv.de">Kubernetes Web View (kube-web-view)</a></li>
+            <li><a href="https://kube-resource-report.demo.j-serv.de">Kubernetes Resource Report (kube-resource-report)</a></li>
+        </ul>
+        <p>Source code of this page can be found on <a href="https://codeberg.org/hjacobs/k3s-demo">https://codeberg.org/hjacobs/k3s-demo</a>.</p>
+        </div>
+        </div>
+        </section>
+    </body>
+    </html>
