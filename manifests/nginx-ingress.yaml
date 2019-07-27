@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: nginx
+  annotations:
+    traefik.ingress.kubernetes.io/redirect-entry-point: https
+spec:
+  rules:
+  - host: "demo.j-serv.de"
+    http:
+      paths:
+      - backend:
+          serviceName: nginx
+          servicePort: 80
