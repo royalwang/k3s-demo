@@ -10,3 +10,9 @@ kubectl top node
 
 git clone https://github.com/hjacobs/kube-ops-view.git
 kubectl apply -f kube-ops-view/deploy/
+
+git clone https://codeberg.org/hjacobs/kube-web-view.git
+kubectl apply -f kube-web-view/deploy/
+
+git clone https://github.com/hjacobs/kube-resource-report.git
+kubectl apply -f kube-resource-report/deploy/
