@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kube-resource-report-config
+data:
+  links.yaml: |
+    application:
+    - href: "https://kube-web-view.demo.j-serv.de/clusters/local/namespaces/_all/pods?selector=application={id}"
+      title: "Search for pods of application {id}"
+      icon: search

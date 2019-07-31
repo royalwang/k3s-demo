@@ -25,10 +25,13 @@ spec:
         - --update-interval-minutes=1
         # Hetzner CX11 is 2.96 EUR/mon
         - --additional-cost-per-cluster=3.29
+        - --links-file=/config/links.yaml
         - /output
         volumeMounts:
         - mountPath: /output
           name: report-data
+        - name: config-volume
+          mountPath: /config
         resources:
           limits:
             memory: 100Mi
@@ -61,3 +64,6 @@ spec:
           - name: report-data
             emptyDir:
               sizeLimit: 500Mi
+          - name: config-volume
+            configMap:
+              name: kube-resource-report-config
