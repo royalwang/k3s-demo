@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    application: kube-web-view
+  name: kube-web-view
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      application: kube-web-view
+  template:
+    metadata:
+      labels:
+        application: kube-web-view
+    spec:
+      serviceAccountName: kube-web-view
+      initContainers:
+      - name: generate-templates
+        image: busybox
+        command: ["sh", "-c", "mkdir /templates/partials && echo '<footer class=\"footer\"><div class=\"container\"><div class=\"has-text-centered\"><p><a href=\"https://codeberg.org/hjacobs/kube-web-view\">Kubernetes Web View</a> {{ version }}</p><p>This is part of a <a href=\"https://demo.j-serv.de\">public K3s demo</a> setup.</p></div></div></footer>' > /templates/partials/footer.html"]
+        volumeMounts:
+        - mountPath: /templates
+          name: templates
+
+      containers:
+      - name: kube-web-view
+        # see https://codeberg.org/hjacobs/kube-web-view/releases
+        image: hjacobs/kube-web-view:0.14.2
+        args:
+        - --port=8080
+        - --templates-path=/templates
+        # uncomment the following line to enable pod logs
+        # (disabled by default as they might consider sensitive information)
+        # - "--show-container-logs"
+        # uncomment the following line to unhide secret data
+        # see also https://kube-web-view.readthedocs.io/en/latest/security.html
+        # - "--show-secrets"
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+        volumeMounts:
+        - mountPath: /templates
+          name: templates
+          readOnly: true
+        resources:
+          limits:
+            memory: 100Mi
+          requests:
+            cpu: 5m
+            memory: 100Mi
+        securityContext:
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+      volumes:
+          - name: templates
+            emptyDir:
+              sizeLimit: 50Mi
