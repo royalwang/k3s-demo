@@ -26,7 +26,7 @@ spec:
       containers:
       - name: kube-web-view
         # see https://codeberg.org/hjacobs/kube-web-view/releases
-        image: hjacobs/kube-web-view:0.14.2
+        image: hjacobs/kube-web-view:0.15
         args:
         - --port=8080
         - --templates-path=/templates
