@@ -31,7 +31,7 @@ spec:
         - --port=8080
         - --templates-path=/templates
         - --label-links=application=https://kube-resource-report.demo.j-serv.de/application-{label_value}.html
-        - --default-label-columns=deployments=application,pods=application
+        - --default-label-columns=deployments=application;pods=application
         # uncomment the following line to enable pod logs
         # (disabled by default as they might consider sensitive information)
         # - "--show-container-logs"
