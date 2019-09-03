@@ -30,7 +30,7 @@ spec:
         args:
         - --port=8080
         - --templates-path=/templates
-        - --label-links=application=https://kube-resource-report.demo.j-serv.de/application-{label_value}.html|file-invoice-dollar|Kubernetes Resource Report
+        - --label-links=application=https://kube-resource-report.demo.j-serv.de/application-{label_value}.html|dollar-sign|Kubernetes Resource Report
         - --default-label-columns=deployments=application;pods=application
         - --preferred-api-versions=deployments=apps/v1
         # uncomment the following line to enable pod logs
