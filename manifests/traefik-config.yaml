@@ -5,13 +5,13 @@ metadata:
   namespace: kube-system
   labels:
     app: traefik
-    chart: traefik-1.64.0
+    chart: traefik-1.76.1
     heritage: Tiller
     release: traefik
 data:
   traefik.toml: |
     # traefik.toml
-    logLevel = "INFO"
+    logLevel = "info"
     defaultEntryPoints = ["http","https"]
     [entryPoints]
       [entryPoints.http]
@@ -20,7 +20,9 @@ data:
       [entryPoints.https]
       address = ":443"
       compress = true
-         [entryPoints.https.tls]
+        [entryPoints.https.tls]
+    [ping]
+    entryPoint = "http"
     [kubernetes]
       [kubernetes.ingressEndpoint]
       publishedService = "kube-system/traefik"
