@@ -1,0 +1,99 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: traefik
+  namespace: kube-system
+  labels:
+    app: traefik
+    chart: traefik-1.76.1
+    heritage: Tiller
+    release: traefik
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: traefik
+      release: traefik
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        checksum/config: d545a9b2fbf68183392d960fb3359f64d8c77e5e6d809078c57fcea66cc5fee0
+      creationTimestamp: null
+      labels:
+        app: traefik
+        chart: traefik-1.76.1
+        heritage: Tiller
+        release: traefik
+    spec:
+      containers:
+      - args:
+        - --configfile=/config/traefik.toml
+        image: traefik:1.7.12
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /ping
+            port: 80
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 2
+        name: traefik
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        - containerPort: 8880
+          name: httpn
+          protocol: TCP
+        - containerPort: 443
+          name: https
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 1
+          httpGet:
+            path: /ping
+            port: 80
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 2
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /config
+          name: config
+        - mountPath: /ssl
+          name: ssl
+        - mountPath: /local-path
+          name: local-path
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: traefik
+      serviceAccountName: traefik
+      terminationGracePeriodSeconds: 60
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: traefik
+        name: config
+      - name: ssl
+        secret:
+          defaultMode: 420
+          secretName: traefik-default-cert
+      - name: local-path
+        persistentVolumeClaim:
+          claimName: traefik-local-path-pvc

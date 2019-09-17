@@ -30,7 +30,7 @@ data:
       format = "json"
     [acme]
       email = "henning@jacobs1.de"
-      storage = "acme.json"
+      storage = "/local-path/acme.json"
       entryPoint = "https"
       onHostRule = true
     [acme.tlsChallenge]
