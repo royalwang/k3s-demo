@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: application-landscape-explorer
+  annotations:
+    traefik.ingress.kubernetes.io/redirect-entry-point: https
+spec:
+  rules:
+  - host: "application-landscape-explorer.demo.j-serv.de"
+    http:
+      paths:
+      - backend:
+          serviceName: application-landscape-explorer
+          servicePort: 80

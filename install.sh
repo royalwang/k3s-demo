@@ -21,4 +21,7 @@ kubectl apply -f kube-web-view/deploy/
 git clone https://github.com/hjacobs/kube-resource-report.git
 kubectl apply -f kube-resource-report/deploy/
 
+git clone https://codeberg.org/hjacobs/application-landscape-explorer.git
+kubectl apply -f application-landscape-explorer/deploy/
+
 kubectl apply -f manifests/
