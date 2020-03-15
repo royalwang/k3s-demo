@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: folding-at-home
+  labels:
+    application: folding-at-home
+  annotations:
+    downscaler/exclude: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      application: folding-at-home
+  template:
+    metadata:
+      labels:
+        application: folding-at-home
+    spec:
+      containers:
+      - name: fahclient
+        image: hjacobs/folding-at-home:7.5.1-1
+        env:
+        - name: USER
+          value: hjacobs
+        - name: TEAM
+          value: "238098"
+        volumeMounts:
+        - mountPath: /home/folding
+          name: data-volume
+        ports:
+        - containerPort: 7396
+        readinessProbe:
+          httpGet:
+            path: /favicon.ico
+            port: 7396
+        resources:
+          limits:
+            memory: 200Mi
+          requests:
+            cpu: 1m
+            memory: 200Mi
+        securityContext:
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+      volumes:
+      - name: data-volume
+        emptyDir: {}
