@@ -12,16 +12,7 @@ sudo mkdir /opt/local-path-provisioner
 kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
 kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 
-git clone https://github.com/hjacobs/kube-ops-view.git
-kubectl apply -f kube-ops-view/deploy/
-
-git clone https://codeberg.org/hjacobs/kube-web-view.git
-kubectl apply -f kube-web-view/deploy/
-
-git clone https://github.com/hjacobs/kube-resource-report.git
-kubectl apply -f kube-resource-report/deploy/
-
 git clone https://codeberg.org/hjacobs/application-landscape-explorer.git
 kubectl apply -f application-landscape-explorer/deploy/
 
-kubectl apply -f manifests/
+kubectl apply -k manifests/
