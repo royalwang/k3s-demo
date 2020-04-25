@@ -17,6 +17,7 @@ patchesStrategicMerge:
   - kube-web-view-deployment.yaml
 
 resources:
+  # add additional resources, e.g. Ingresses
   - application-landscape-explorer-ingress.yaml
   - kube-ops-view-ingress.yaml
   - kube-resource-report-config.yaml
