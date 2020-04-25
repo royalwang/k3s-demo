@@ -12,7 +12,4 @@ sudo mkdir /opt/local-path-provisioner
 kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
 kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 
-git clone https://codeberg.org/hjacobs/application-landscape-explorer.git
-kubectl apply -f application-landscape-explorer/deploy/
-
 kubectl apply -k manifests/
