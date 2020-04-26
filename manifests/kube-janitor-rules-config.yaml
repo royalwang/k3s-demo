@@ -13,5 +13,5 @@ data:
           - pods
         # see http://jmespath.org/specification.html
         # terminate random app pods after 1 hour (random dice returns 1-6)
-        jmespath: "starts_with(metadata.name, 'application-landscape-explorer-') && _context.random_dice == 1"
+        jmespath: "starts_with(metadata.name, 'application-landscape-explorer-') && _context.random_dice == `1`"
         ttl: 1h
