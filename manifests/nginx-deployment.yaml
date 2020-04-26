@@ -2,8 +2,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx
+  annotations:
+    # scale down to 1 replica in the night and on weekends
+    downscaler/uptime: "Mon-Fri 07:30-18:00 Europe/Berlin"
+    downscaler/downtime-replicas: "1"
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: nginx

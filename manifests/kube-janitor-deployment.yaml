@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-janitor
+spec:
+  template:
+    spec:
+      containers:
+      - name: janitor
+        args:
+          # run every minute
+          - --interval=60
+          - --rules-file=/config/rules.yaml

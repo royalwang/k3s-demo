@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: kube-ops-view
 spec:
+  replicas: 2
   template:
     spec:
       containers:

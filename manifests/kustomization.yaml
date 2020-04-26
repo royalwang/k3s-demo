@@ -12,6 +12,8 @@ bases:
 
 patchesStrategicMerge:
   # patch container args for demo setup
+  - kube-downscaler-deployment.yaml
+  - kube-janitor-deployment.yaml
   - kube-ops-view-deployment.yaml
   - kube-resource-report-deployment.yaml
   - kube-web-view-deployment.yaml

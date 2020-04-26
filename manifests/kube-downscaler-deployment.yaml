@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-downscaler
+spec:
+  template:
+    spec:
+      containers:
+      - name: downscaler
+        args:
+          # opt-in via annotations
+          - --default-downtime=never
+          - --default-uptime=always
+          # run every minute
+          - --interval=60
