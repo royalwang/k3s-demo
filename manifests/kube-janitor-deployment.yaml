@@ -11,3 +11,4 @@ spec:
           # run every minute
           - --interval=60
           - --rules-file=/config/rules.yaml
+          - --resource-context-hook=kube_janitor.example_hooks.random_dice
