@@ -5,7 +5,7 @@ bases:
   # default upstream deployments
   - https://codeberg.org/hjacobs/kube-web-view/deploy
   - https://codeberg.org/hjacobs/application-landscape-explorer/deploy
-  - https://github.com/hjacobs/kube-downscaler/deploy
+  - https://codeberg.org/hjacobs/kube-downscaler/deploy
   - https://codeberg.org/hjacobs/kube-janitor/deploy
   - https://github.com/hjacobs/kube-ops-view/deploy
   - https://github.com/hjacobs/kube-resource-report/deploy
