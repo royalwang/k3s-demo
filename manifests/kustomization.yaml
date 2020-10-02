@@ -7,8 +7,8 @@ bases:
   - https://codeberg.org/hjacobs/application-landscape-explorer/deploy
   - https://codeberg.org/hjacobs/kube-downscaler/deploy
   - https://codeberg.org/hjacobs/kube-janitor/deploy
-  - https://github.com/hjacobs/kube-ops-view/deploy
-  - https://github.com/hjacobs/kube-resource-report/deploy
+  - https://codeberg.org/hjacobs/kube-ops-view/deploy
+  - https://codeberg.org/hjacobs/kube-resource-report/deploy
 
 patchesStrategicMerge:
   # patch container args for demo setup
