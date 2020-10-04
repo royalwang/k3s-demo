@@ -8,6 +8,6 @@ spec:
       containers:
       - name: minimal-statuspage
         args:
-          - --sites=https://demo.j-serv.de,https://srcco.de
+          - --sites=https://demo.j-serv.de,https://srcco.de,https://codeberg.org
           - --probe-interval=500
           - --data-path=/data
