@@ -10,3 +10,4 @@ spec:
         args:
           - --sites=https://demo.j-serv.de,https://srcco.de
           - --probe-interval=500
+          - --data-path=/data
