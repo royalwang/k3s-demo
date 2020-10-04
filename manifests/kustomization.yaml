@@ -9,6 +9,7 @@ bases:
   - https://codeberg.org/hjacobs/kube-janitor/deploy
   - https://codeberg.org/hjacobs/kube-ops-view/deploy
   - https://codeberg.org/hjacobs/kube-resource-report/deploy
+  - https://codeberg.org/hjacobs/minimal-statuspage/deploy
 
 patchesStrategicMerge:
   # patch container args for demo setup
@@ -26,6 +27,7 @@ resources:
   - kube-resource-report-config.yaml
   - kube-resource-report-ingress.yaml
   - kube-web-view-ingress.yaml
+  - minimal-statuspage-ingress.yaml
   - nginx-deployment.yaml
   - nginx-html.yaml
   - nginx-ingress.yaml

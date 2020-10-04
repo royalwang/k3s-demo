@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: minimal-statuspage
+  annotations:
+    traefik.ingress.kubernetes.io/redirect-entry-point: https
+spec:
+  rules:
+  - host: "status.demo.j-serv.de"
+    http:
+      paths:
+      - backend:
+          serviceName: minimal-statuspage
+          servicePort: 80
