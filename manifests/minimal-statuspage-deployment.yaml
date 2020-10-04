@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minimal-statuspage
+spec:
+  template:
+    spec:
+      containers:
+      - name: minimal-statuspage
+        args:
+          - --sites=https://demo.j-serv.de,https://srcco.de
+          - --probe-interval=500

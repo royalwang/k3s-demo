@@ -19,6 +19,7 @@ patchesStrategicMerge:
   - kube-ops-view-deployment.yaml
   - kube-resource-report-deployment.yaml
   - kube-web-view-deployment.yaml
+  - minimal-statuspage-deployment.yaml
 
 resources:
   # add additional resources, e.g. Ingresses
