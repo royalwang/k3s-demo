@@ -9,5 +9,5 @@ spec:
       - name: minimal-statuspage
         args:
           - --sites=https://demo.j-serv.de,https://srcco.de,https://codeberg.org
-          - --probe-interval=500
+          - --probe-interval=120
           - --data-path=/data
